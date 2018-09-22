@@ -1,0 +1,8 @@
+1. "sudo pacman -S alsa-utils pulseaudio pulseaudio-alsa pavucontrol" 
+-> first 3 to enable audio, 4rth to have tray icon for sound and volume control.
+2. reboot...
+3. type "alsamixer" in terminal
+4. press "m" if you see "MM" (surrounded by black),
+don't press anything if you see "OO" (sorrounded by green),
+use arrows to change volume strength.
+

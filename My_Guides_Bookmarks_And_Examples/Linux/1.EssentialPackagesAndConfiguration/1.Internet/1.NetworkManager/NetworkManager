@@ -1,0 +1,24 @@
+1. "sudo pacman -S  networkmanager dhclient nm-connection-editor  network-manager-applet" ->install networkmanager
+2. "sudo pacman -S gnome-keyring" -> needed to edit connections by clicking a network name from the list 
+in the tray (Top Right in Xfce4).
+2.  Wanna use VPN from networkmanager?
+///////////////////////////////////////////////////////////////////////
+						FROM AUR
+///////////////////////////////////////////////////////////////////////
+     networkmanager-openconnect for OpenConnect
+    networkmanager-openvpn for OpenVPN
+    networkmanager-pptp for PPTP Client
+    networkmanager-vpnc for Vpnc
+    networkmanager-strongswan for strongSwan
+    networkmanager-fortisslvpn-gitAUR
+    networkmanager-iodine-gitAUR
+    networkmanager-libreswanAUR
+    networkmanager-l2tpAUR
+    networkmanager-ssh-gitAUR
+    networkmanager-sstpAUR
+    networkmanager-wireguard-gitAUR for WireGuard
+///////////////////////////////////////////////////////////////////////
+3. "systemctl enable NetworkManager.service" -> enable on boot
+4. Reboot
+5. On XFCE4 The NM tray icon appears on Top Right part of screen.
+

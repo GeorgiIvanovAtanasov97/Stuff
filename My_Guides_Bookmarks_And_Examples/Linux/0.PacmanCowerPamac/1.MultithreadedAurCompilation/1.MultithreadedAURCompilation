@@ -1,0 +1,9 @@
+0. open terminal
+1. "sudo nano /etc/makepkg.conf"
+2.  Go to " #MAKEFLAGS="-j2" "
+3.uncheck it  " MAKEFLAGS="-j2" " /Remove #/
+4.put the number of your processor maximum threads behind -j
+5.for example MAKEFLAGS="-j4"
+6.save
+7.enjoy it works with terminal and pamac...
+

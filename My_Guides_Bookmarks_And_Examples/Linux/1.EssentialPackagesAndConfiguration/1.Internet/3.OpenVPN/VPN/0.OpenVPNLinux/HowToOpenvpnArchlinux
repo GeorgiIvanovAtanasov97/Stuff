@@ -1,0 +1,41 @@
+1. Download https://www.mullvad.net/en/download/config/ for Linux,Sweden, UDP 53,IP addresses:YES.
+
+2. Unzip "mullvad_config_linux_se.zip".
+
+3. Open Terminal.
+
+4. "sudo su" -> Go root.
+
+5. "cd /home/my_username/Downloads/mullvad_config_linux_se/" -> Lock directory unzipped archive.
+
+6. "mv mullvad_se.conf mullvad.conf" -> Rename .conf file with easier name for ".service".
+
+7. "mv * /etc/openvpn/client" -> Move everything from directory to Openvpn folder.
+
+8. "mv /etc/openvpn/client/update-resolv-conf /etc/openvpn/update-resolv-conf" -> Move update-resolv-conf to the right place.
+
+9. "nano /etc/openvpn/client/mullvad.conf" -> Edit the config file...
+
+10.
+///////////////////////////////////////////////////////////////////////////////////////////////
+				       PUT FULL PATH TO FILES:
+///////////////////////////////////////////////////////////////////////////////////////////////
+auth-user-pass mullvad_userpass.txt
+ca mullvad_ca.crt
+crl-verify mullvad_crl.pem
+///////////////////////////////////////////////////////////////////////////////////////////////
+auth-user-pass /etc/openvpn/client/mullvad_userpass.txt
+ca /etc/openvpn/client/mullvad_ca.crt
+crl-verify /etc/openvpn/client/mullvad_crl.pem
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+11. Save
+12 AND 13 Make root owner in order to increase security.
+	12. "sudo chown root /etc/openvpn/update-resolv-conf"
+	13. "sudo chown root /etc/openvpn/client/*"
+
+14. "systemctl status openvpn-client@mullvad" -> Check if we screwed up something...
+
+15. "systemctl start openvpn-client@mullvad" -> If we didn't start it.
+
+16 "systemctl enable openvpn-client@mullvad" -> Enable the service at boot.

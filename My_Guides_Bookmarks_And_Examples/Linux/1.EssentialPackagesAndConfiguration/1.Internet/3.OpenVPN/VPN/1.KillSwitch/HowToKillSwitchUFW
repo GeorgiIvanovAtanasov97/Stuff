@@ -1,0 +1,54 @@
+1. Open Terminal
+
+2. "sudo su" -> go root
+
+3. "systemctl enable ufw" -> enable ufw on boot
+
+4. "systemctl start ufw" -> start ufw now
+
+5. "sudo ufw enable"
+
+6 and 7 Deny all traffic outside the rules...
+Not experienced yet, but I think that reject instead deny makes you invisible.
+	
+	6."sudo ufw default deny incoming"
+
+	7."sudo ufw default deny outgoing"
+
+8. "ip link" -> check all interfaces
+
+9. Find the interface you use and replace interface below with its name.
+It's wlp-something or enp-something or something else...
+
+
+10. Allow IP Ranges on default interface in order
+to be able to connect to VPN and create a 
+tunnel...
+In our case it's UDP coonection with port 53.
+
+"sudo ufw allow out on <interface> to 185.213.152.0/24 proto udp port 53 comment 'Allow Tunnel'"
+
+"sudo ufw allow out on <interface> to 185.65.134.0/24 proto udp port 53 comment 'Allow Tunnel'"
+
+"sudo ufw allow out on <interface> to 185.65.135.0/24 proto udp port 53 comment 'Allow Tunnel'"
+
+"sudo ufw allow out on <interface> to 193.138.219.0/24 proto udp port 53 comment 'Allow Tunnel'"
+
+"sudo ufw allow out on <interface> to 193.138.218.0/24 proto udp port 53 comment 'Allow Tunnel'"
+
+"sudo ufw allow out on <interface> to 185.213.154.0/24 proto udp port 53 comment 'Allow Tunnel'"
+
+11. "sudo ufw allow out on tun0" -> allow traffic on tunnel interface.
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+1.  "sudo nano /etc/pacman.conf"
+
+2-3 Uncheck #'s
+	2.
+	"
+	#[multilib]
+	#Include = /etc/pacman.d/mirrorlist
+	"
+	3. To
+	"
+	[multilib]
+	Include = /etc/pacman.d/mirrorlist
+	"
+4. "sudo pacman -Syyu" ->Update repositories and packages to last version.

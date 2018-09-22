@@ -1,0 +1,2 @@
+pacstrap base base-devel
+

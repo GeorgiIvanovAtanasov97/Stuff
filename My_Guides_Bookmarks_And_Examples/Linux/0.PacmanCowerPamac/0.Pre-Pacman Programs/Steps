@@ -1,0 +1,12 @@
+1. pacman -S git 
+2.  "git clone https://aur.archlinux.org/cower.git", 
+install dependencies, 
+install package... 
+(
+sudo pacman -S <dependency>
+makepkg
+sudo pacman -U <package.tar.gz>
+)
+
+3. "mkdir PAMAC_AUR && cd PAMAC_AUR"
+4. "cower -d -d pamac-aur",install listed dependencies,install package.

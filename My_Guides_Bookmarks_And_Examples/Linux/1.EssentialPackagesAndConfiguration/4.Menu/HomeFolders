@@ -1,0 +1,4 @@
+1.install xdg-user-dirs
+2.open terminal
+3."xdg-user-dirs-update"
+4.reboot to get icon changes

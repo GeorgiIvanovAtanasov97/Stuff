@@ -1,0 +1,13 @@
+0. Downgrade vala to 0.40.9-1 (IF BUILD PROBLEM STILL PERSISTS 22.09.2018) ...
+	"downgrader vala"
+	"11"
+	"..."
+1. "sudo pacman -S lightdm-settings"
+2. Run it:  "Login Window".
+3.  The "Special" thing here is  that Backgrounds and Icons have to be in System "/",not in "home".
+4. XFCE4 default's background location is "/usr/share/backgrounds/xfce".
+5. So we make "sudo mkdir /usr/share/backgrounds/mine".
+6. Then we lock downloads directory "/home/my_username/Downloads/" and list "ls".
+7. "sudo mv <my downloaded pic>.png /usr/share/backgrounds/mine/<my downloaded pic>.png"
+
+

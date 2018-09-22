@@ -1,0 +1,18 @@
+1-6 Install one of the  options, that matches your GPU.
+	1. "nvidia340xx and nvidia340xx-utils, nvidia340xx-settings"
+	2. "nvidia340xx-dkms and nvidia340xx-utils, nvidia340xx-settings"
+	3. "nvidia390xx and nvidia390xx-utils, nvidia340xx-settings"
+	4. "nvidia390xx-dkms and nvidia390xx-utils, nvidia340xx-settings"
+	5. "nvidia and nvidia-utils, nvidia-settings"
+	6. "nvidia-dkms and nvidia-utils, nvidia-settings"
+
+The "nvidia" only packages without "3x0xx" usually don't work.
+
+7-9 Blacklist nouveau (Optional if you have problems)
+	7. "touch /etc/modprobe.d/blacklist.conf" -> create blacklist configuration file if you don't have it already.
+	8. "nano  /etc/modprobe.d/blacklist.conf" -> edit it.
+	9. write:
+	////////////////////////////////////
+	blacklist nouveau
+	install nouveau /bin/false
+	////////////////////////////////////

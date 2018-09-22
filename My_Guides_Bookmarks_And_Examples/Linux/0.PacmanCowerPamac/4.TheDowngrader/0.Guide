@@ -1,0 +1,12 @@
+1. "git clone https://aur.archlinux.org/downgrader.git" and install, "cower -d -d downgrader" and install or pamac search and install with AUR support enabled.
+2. "downgrader <package name>"
+3. choose number
+4. password+ENTER
+5. "sudo nano /etc/pacman.conf" or "sudo gedit /etc/pacman.conf"
+6. Remove the "#" before "#IgnorePkg=" and write package name after equals.
+7. "sudo pacman -Syyu"
+8. Get " <package name> warning: <package name>  ignoring package upgrade (<current version>=> <latest version>) ".
+9. Second check "pacman -Q | grep nano <package name>"
+10. version hasn't changed after update....
+
+

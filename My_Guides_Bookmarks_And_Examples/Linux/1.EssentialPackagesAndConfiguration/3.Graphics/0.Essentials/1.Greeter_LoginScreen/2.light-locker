@@ -1,0 +1,4 @@
+1.gnome-keyring package is needed for light-locker.
+2-3 nvidia-xconfig -> needed by light-locker
+	2. install x86-input, x86-input-evdev, x86-input-mouse
+	3. run nvidia-xconfig to generate /etc/X11/xorg.conf

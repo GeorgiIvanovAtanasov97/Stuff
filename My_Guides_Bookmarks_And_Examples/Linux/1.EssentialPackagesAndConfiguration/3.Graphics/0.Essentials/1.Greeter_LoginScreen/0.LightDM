@@ -1,0 +1,2 @@
+1. "sudo pacman -S lightdm lightdm-gtk-greeter" or "pacstrap /mnt lightdm lightdm-gtk-greeter".
+2. "systemctl enable lightdm" ->enable service

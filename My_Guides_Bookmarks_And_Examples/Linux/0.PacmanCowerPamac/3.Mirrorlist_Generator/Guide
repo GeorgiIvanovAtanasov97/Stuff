@@ -1,0 +1,26 @@
+1. Go to https://www.archlinux.org/mirrorlist/
+2. Choose your settings.
+3. Open "/etc/pacman.d/mirrorlist", preferably with gedit (gnome text editor).
+4. Ctrl+A then Backspace -> Remove Everything
+5. Copy Paste Generated List.
+6. Remove the #'s before "Server". 
+With gedit you can simple Ctrl+H...
+Find="#Server"
+Replace with="Server"
+
+For Example
+
+"
+#Server = http://archlinux.cu.be/$repo/os/$arch
+#Server = http://archlinux.mirror.kangaroot.net/$repo/os/$arch
+"
+
+to
+
+"
+Server = http://archlinux.cu.be/$repo/os/$arch
+Server = http://archlinux.mirror.kangaroot.net/$repo/os/$arch
+"
+
+
+
