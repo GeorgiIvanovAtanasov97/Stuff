@@ -1,2 +1,3 @@
 Tests:
-0.Segfaults On Manjaro/May be on all Arch based distros?/
+0.Segfaults on Manjaro when trying to install some of thhe 2.7.* version. 3.6.6 and 2.7.15 installed sucessfully.
+
