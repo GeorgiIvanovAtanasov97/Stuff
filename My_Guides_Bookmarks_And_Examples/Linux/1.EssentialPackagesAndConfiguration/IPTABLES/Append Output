@@ -1,0 +1,96 @@
+#DEFAULT POLICY DONT ALLOW CONNECTIONS
+
+iptables -P OUTPUT DROP
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+
+ip6tables -P OUTPUT DROP
+ip6tables -P INPUT DROP
+ip6tables -P FORWARD DROP
+
+#OPENVPN
+	#Unblock OpenVPN Port
+
+
+iptables -A OUTPUT -p udp --dport 1194 -j ACCEPT
+ip6tables -A OUTPUT -p udp --dport 1194 -j ACCEPT
+	
+	#Rules To Allow Traffict With VPN
+
+iptables -A OUTPUT -d 185.213.152.0/24 -j ACCEPT
+iptables -A OUTPUT -d 185.65.134.0/24 -j ACCEPT
+iptables -A OUTPUT -d 185.65.135.0/24 -j ACCEPT
+iptables -A OUTPUT -d 193.138.219.0/24 -j ACCEPT
+iptables -A OUTPUT -d 193.138.218.0/24 -j ACCEPT
+iptables -A OUTPUT -d 185.213.154.0/24 -j ACCEPT
+
+ip6tables -A OUTPUT -d 185.213.152.0/24 -j ACCEPT
+ip6tables -A OUTPUT -d 185.65.134.0/24 -j ACCEPT
+ip6tables -A OUTPUT -d 185.65.135.0/24 -j ACCEPT
+ip6tables -A OUTPUT -d 193.138.219.0/24 -j ACCEPT
+ip6tables -A OUTPUT -d 193.138.218.0/24 -j ACCEPT
+ip6tables -A OUTPUT -d 185.213.154.0/24 -j ACCEPT
+
+iptables -A INPUT -s 185.213.152.0/24 -j ACCEPT
+iptables -A INPUT -s 185.65.134.0/24 -j ACCEPT
+iptables -A INPUT -s 185.65.135.0/24 -j ACCEPT
+iptables -A INPUT -s 193.138.219.0/24 -j ACCEPT
+iptables -A INPUT -s 193.138.218.0/24 -j ACCEPT
+iptables -A INPUT -s 185.213.154.0/24 -j ACCEPT
+
+ip6tables -A INPUT -s 185.213.152.0/24 -j ACCEPT
+ip6tables -A INPUT -s 185.65.134.0/24 -j ACCEPT
+ip6tables -A INPUT -s 185.65.135.0/24 -j ACCEPT
+ip6tables -A INPUT -s 193.138.219.0/24 -j ACCEPT
+ip6tables -A INPUT -s 193.138.218.0/24 -j ACCEPT
+ip6tables -A INPUT -s 185.213.154.0/24 -j ACCEPT
+
+
+#Incoming packets that are a response to a packet sent by your system
+
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+ip6tables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+
+#Drop Invalid
+iptables -A INPUT -m conntrack --ctstate INVALID -j DROP
+ip6tables -A INPUT -m conntrack --ctstate INVALID -j DROP
+
+#LOOPBACK
+
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
+#WEB BROWSING
+	#IP4
+
+iptables -A OUTPUT -o tun0 -p tcp --dport 53 -j ACCEPT
+iptables -A OUTPUT -o tun0 -p tcp --dport 80 -j ACCEPT
+iptables -A OUTPUT -o tun0 -p tcp --dport 443 -j ACCEPT
+iptables -A OUTPUT -o tun0 -p tcp --dport 8080 -j ACCEPT
+
+
+
+iptables -A OUTPUT -o tun0 -p udp --dport 42 -j ACCEPT
+iptables -A OUTPUT -o tun0 -p udp --dport 53 -j ACCEPT
+iptables -A OUTPUT -o tun0 -p udp --dport 80 -j ACCEPT
+iptables -A OUTPUT -o tun0 -p udp --dport 8080 -j ACCEPT
+iptables -A OUTPUT -o tun0 -p udp --dport 443 -j ACCEPT
+
+	#IP6
+
+ip6tables -A OUTPUT -o tun0 -p tcp --dport 53 -j ACCEPT
+ip6tables -A OUTPUT -o tun0 -p tcp --dport 80 -j ACCEPT
+ip6tables -A OUTPUT -o tun0 -p tcp --dport 443 -j ACCEPT
+ip6tables -A OUTPUT -o tun0 -p tcp --dport 8080 -j ACCEPT
+
+
+
+ip6tables -A OUTPUT -o tun0 -p udp --dport 42 -j ACCEPT
+ip6tables -A OUTPUT -o tun0 -p udp --dport 53 -j ACCEPT
+ip6tables -A OUTPUT -o tun0 -p udp --dport 80 -j ACCEPT
+ip6tables -A OUTPUT -o tun0 -p udp --dport 8080 -j ACCEPT
+ip6tables -A OUTPUT -o tun0 -p udp --dport 443 -j ACCEPT
+
+
+
